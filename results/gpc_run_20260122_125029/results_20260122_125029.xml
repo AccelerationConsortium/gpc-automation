@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="utf-8"?>
+<experiment xmlns="http://www.wyatt.com/schemas/ExperimentReport">
+  <name>experiment_20260122_125029.aex</name>
+  <settings>
+    <setting>
+      <name>Printing Operator</name>
+      <value>WATERS-H4Q6K34\Administrator (Administrator)</value>
+    </setting>
+  </settings>
+  <settings>
+    <name>File Properties</name>
+    <setting>
+      <name>File Name</name>
+      <value>C:/Users/Administrator.WS/Desktop/wyatt-api/gpc-automation/results/gpc_run_20260122_125029/experiment_20260122_125029.aex.afe8</value>
+    </setting>
+    <setting>
+      <name>Name</name>
+      <value>experiment_20260122_125029.aex.afe8</value>
+    </setting>
+    <setting>
+      <name>Directory</name>
+      <value>C:/Users/Administrator.WS/Desktop/wyatt-api/gpc-automation/results/gpc_run_20260122_125029/</value>
+    </setting>
+    <setting>
+      <name>Created</name>
+      <value>Thursday January 22, 2026 13:05:22.912 UTC-0400</value>
+    </setting>
+    <setting>
+      <name>Modified</name>
+      <value>Thursday January 22, 2026 13:05:22.912 UTC-0400</value>
+    </setting>
+    <setting>
+      <name>ODBC Data Source</name>
+      <value></value>
+    </setting>
+    <setting>
+      <name>ODBC User Name</name>
+      <value></value>
+    </setting>
+    <setting>
+      <name>Database DBMS</name>
+      <value></value>
+    </setting>
+    <setting>
+      <name>Database Host</name>
+      <value></value>
+    </setting>
+    <setting>
+      <name>Database Name</name>
+      <value></value>
+    </setting>
+    <setting>
+      <name>Database Path</name>
+      <value></value>
+    </setting>
+    <setting>
+      <name>Title</name>
+      <value></value>
+    </setting>
+    <setting>
+      <name>Subject</name>
+      <value></value>
+    </setting>
+    <setting>
+      <name>Description</name>
+      <value></value>
+    </setting>
+    <setting>
+      <name>Comments</name>
+      <value></value>
+    </setting>
+    <setting>
+      <name>Category</name>
+      <value></value>
+    </setting>
+    <setting>
+      <name>Rating</name>
+      <value>none</value>
+    </setting>
+    <setting>
+      <name>Company</name>
+      <value></value>
+    </setting>
+    <setting>
+      <name>Author</name>
+      <value></value>
+    </setting>
+    <setting>
+      <name>Manager</name>
+      <value></value>
+    </setting>
+  </settings>
+  <graphs>
+    <graph experiment_id="7392AAFC-4E5F-4A92-8BBB-EFB6B7E2C7A3" template_id="E73518F6-861D-44AF-873D-D1B0680063B7" procedure_id="DC1507B9-987E-4074-8E08-0EEB2E8766E2" graph_id="0">
+      <name>Basic Collection template</name>
+    </graph>
+    <graph experiment_id="7392AAFC-4E5F-4A92-8BBB-EFB6B7E2C7A3" template_id="96DBF06E-EC51-42A1-84AE-78356BE1276C" procedure_id="B9C8FE86-6C6A-4FFA-887D-308C0EE06E92" graph_id="0">
+      <name>Despiking Procedure template</name>
+    </graph>
+    <graph experiment_id="7392AAFC-4E5F-4A92-8BBB-EFB6B7E2C7A3" template_id="FBACAEE8-4FCD-4462-B200-2A8FD510B897" procedure_id="D007301D-97B2-4AD0-9306-46DBDBFEDB8C" graph_id="0">
+      <name>Define Baselines template</name>
+    </graph>
+    <graph experiment_id="7392AAFC-4E5F-4A92-8BBB-EFB6B7E2C7A3" template_id="CB5785C2-A109-4FA6-B228-549E7A5ACCF8" procedure_id="FD6C25CB-A7E2-4DE7-A2D2-CA12A734F36A" graph_id="0">
+      <name>Alignment template</name>
+    </graph>
+    <graph experiment_id="7392AAFC-4E5F-4A92-8BBB-EFB6B7E2C7A3" template_id="6ADCD254-C5E8-48B3-8B88-27DE7CB57913" procedure_id="ECB0043A-0229-4660-A010-CAAE6422F713" graph_id="0">
+      <name>Band Broadening template</name>
+    </graph>
+    <graph experiment_id="7392AAFC-4E5F-4A92-8BBB-EFB6B7E2C7A3" template_id="A8DD2DBC-2DDC-4643-B746-FB519F343551" procedure_id="1B780ECC-C0F6-486F-A2B0-79C344533320" graph_id="0">
+      <name>Define Peaks template</name>
+    </graph>
+    <graph experiment_id="7392AAFC-4E5F-4A92-8BBB-EFB6B7E2C7A3" template_id="130FF831-5C17-484A-9E04-4A00BD8745CA" procedure_id="B37A45AF-87A4-45DB-A6F1-8AE5A8538522" graph_id="0">
+      <name>Molar Mass &amp; Radius from LS template</name>
+    </graph>
+    <graph experiment_id="7392AAFC-4E5F-4A92-8BBB-EFB6B7E2C7A3" template_id="29DCEBFD-DE60-47BD-9D37-C4F82C4CE7BA" procedure_id="64FD010B-A0A2-4AA5-8A56-4C81A9F36137" graph_id="0"/>
+    <graph experiment_id="7392AAFC-4E5F-4A92-8BBB-EFB6B7E2C7A3" template_id="6998617D-247A-423B-B7B5-6B5DB255219B" procedure_id="4E3DA885-82CC-42E7-835B-EC5D185C8A29" graph_id="0"/>
+    <graph experiment_id="7392AAFC-4E5F-4A92-8BBB-EFB6B7E2C7A3" template_id="D25FAA38-4304-4DD0-8A97-EFA5E4E5CAFF">
+      <name>masses vs volume</name>
+    </graph>
+    <graph experiment_id="7392AAFC-4E5F-4A92-8BBB-EFB6B7E2C7A3" template_id="408E2B8B-DCC3-467D-AF6F-CB7E870D01CF">
+      <name>rms radius vs volume</name>
+    </graph>
+  </graphs>
+  <configuration>
+    <name>LS+RI</name>
+    <description></description>
+    <note></note>
+    <settings>
+      <setting>
+        <name>Abscissa Units</name>
+        <value>min</value>
+      </setting>
+      <setting>
+        <name>Concentration Source</name>
+        <value>RI</value>
+      </setting>
+      <setting>
+        <name>Flow Rate</name>
+        <scalar units="mL/min">5.000000000e-01</scalar>
+      </setting>
+      <setting>
+        <name>Pulse Correction Enabled</name>
+        <value>yes</value>
+      </setting>
+      <setting>
+        <name>Fundamental Frequency</name>
+        <scalar units="Hz">0.000000000e+00</scalar>
+      </setting>
+    </settings>
+    <solvent>
+      <name>THF</name>
+      <description>System solvent (C4H8O)</description>
+      <settings>
+        <setting>
+          <name>Temperature Correction Enabled</name>
+          <value>yes</value>
+        </setting>
+        <setting>
+          <name>Refractive Index</name>
+          <scalar>1.402125387e+00</scalar>
+        </setting>
+        <setting>
+          <name>Rayleigh Ratio</name>
+          <scalar units="1/cm">3.564725354e-06</scalar>
+        </setting>
+        <setting>
+          <name>Viscosity</name>
+          <scalar units="cP">4.559365622e-01</scalar>
+        </setting>
+      </settings>
+      <settings>
+        <name>Refractive Index Model</name>
+        <setting>
+          <name>Model Name</name>
+          <value>Cauchy</value>
+        </setting>
+        <setting>
+          <name>Equation</name>
+          <value>N(λ) = 1.40282 + 0.0038323 λ² - 0 λ^4 - 0- 0.000378058 * 25</value>
+        </setting>
+      </settings>
+      <settings>
+        <name>Rayleigh Ratio Model</name>
+        <setting>
+          <name>Model Name</name>
+          <value>Corrected Lambda^4</value>
+        </setting>
+        <setting>
+          <name>Equation</name>
+          <value>R(λ, T) = 4.28e-06 * (632.8/λ)^4 * (N(λ)/N(632.8))²[(N(λ) - 1)/(N(632.8) - 1)]²</value>
+        </setting>
+      </settings>
+      <settings>
+        <name>Viscosity Model</name>
+        <setting>
+          <name>Model Name</name>
+          <value>Andrade Organic</value>
+        </setting>
+        <setting>
+          <name>Equation</name>
+          <value>unknown</value>
+        </setting>
+      </settings>
+      <settings>
+        <name>Thermal Expansion Model</name>
+        <setting>
+          <name>Model Name</name>
+          <value>Knovel</value>
+        </setting>
+        <setting>
+          <name>Equation</name>
+          <value>unknown</value>
+        </setting>
+      </settings>
+    </solvent>
+    <instruments>
+      <instrument type="ls">
+        <name>miniDAWN</name>
+        <description></description>
+        <settings>
+          <setting>
+            <name>Physical Instrument Name</name>
+            <value>miniDAWN</value>
+          </setting>
+          <setting>
+            <name>Physical Instrument Location</name>
+            <value>WYATT-3512MD3</value>
+          </setting>
+          <setting>
+            <name>Firmware Version</name>
+            <value>4.0.6</value>
+          </setting>
+          <setting>
+            <name>Disable Data Collection</name>
+            <value>no</value>
+          </setting>
+          <setting>
+            <name>Temperature Control</name>
+            <value>no</value>
+          </setting>
+          <setting>
+            <name>Band Broadening Correction</name>
+            <value>Yes  (Instrumental: 17.214 μL, Mixing: 32.646 μL)</value>
+          </setting>
+          <setting>
+            <name>Batch Mode</name>
+            <value>no</value>
+          </setting>
+          <setting>
+            <name>Cell Type</name>
+            <value>Fused Silica</value>
+          </setting>
+          <setting>
+            <name>Wavelength</name>
+            <scalar units="nm">6.615400000e+02</scalar>
+          </setting>
+          <setting>
+            <name>Calibrate on Std Peak Number</name>
+            <value>none</value>
+          </setting>
+          <setting>
+            <name>Calibrate on Std Known Molar Mass</name>
+            <scalar units="kDA">0.000000000e+00</scalar>
+          </setting>
+          <setting>
+            <name>Calibrate on Std Computed Calibration Constant</name>
+            <scalar units="1/(V cm)">0.000000000e+00</scalar>
+          </setting>
+          <setting>
+            <name>Calibrate on Std Percentage Change</name>
+            <scalar units="%">0.000000000e+00</scalar>
+          </setting>
+          <setting>
+            <name>Calibration Constant</name>
+            <scalar units="1/(V cm)">2.517200000e-05</scalar>
+          </setting>
+          <setting>
+            <name>Comet Cell Cleaner</name>
+            <value>no</value>
+          </setting>
+          <setting>
+            <name>Divide raw LS signal by laser monitor</name>
+            <value>yes</value>
+          </setting>
+          <setting>
+            <name>Divide raw LS signal by forward laser monitor</name>
+            <value>no</value>
+          </setting>
+          <setting>
+            <name>Polarization Option</name>
+            <value>no</value>
+          </setting>
+          <setting>
+            <name>Temperature Controlled Line</name>
+            <value>no</value>
+          </setting>
+          <setting>
+            <name>Heated Line Temperature</name>
+            <scalar units="°C">0.000000000e+00</scalar>
+          </setting>
+          <setting>
+            <name>DLS Enabled</name>
+            <value>no</value>
+          </setting>
+        </settings>
+        <detectors>
+          <detector>
+            <number>   1 (49.00°)</number>
+            <angle>46.60</angle>
+            <norm_coeff>0.758</norm_coeff>
+          </detector>
+          <detector>
+            <number>   2 (90.00°)</number>
+            <angle>90.00</angle>
+            <norm_coeff>1.000</norm_coeff>
+          </detector>
+          <detector>
+            <number>   3 (131.00°)</number>
+            <angle>133.40</angle>
+            <norm_coeff>0.795</norm_coeff>
+          </detector>
+        </detectors>
+      </instrument>
+      <instrument type="ri">
+        <name>Optilab</name>
+        <description></description>
+        <settings>
+          <setting>
+            <name>Physical Instrument Name</name>
+            <value>Optilab</value>
+          </setting>
+          <setting>
+            <name>Physical Instrument Location</name>
+            <value>WYATT-4443OP1H</value>
+          </setting>
+          <setting>
+            <name>Firmware Version</name>
+            <value>8.1.7</value>
+          </setting>
+          <setting>
+            <name>Disable Data Collection</name>
+            <value>no</value>
+          </setting>
+          <setting>
+            <name>Temperature Control</name>
+            <value>yes</value>
+          </setting>
+          <setting>
+            <name>Temperature</name>
+            <scalar units="°C">2.500000000e+01</scalar>
+          </setting>
+          <setting>
+            <name>Band Broadening Correction</name>
+            <value>n/a</value>
+          </setting>
+          <setting>
+            <name>Batch Mode</name>
+            <value>no</value>
+          </setting>
+          <setting>
+            <name>Wavelength</name>
+            <scalar units="nm">6.580000000e+02</scalar>
+          </setting>
+          <setting>
+            <name>Calibration Constant</name>
+            <scalar units="RIU/pixel">8.323310000e-05</scalar>
+          </setting>
+        </settings>
+      </instrument>
+      <instrument type="injector">
+        <name>injector</name>
+        <description></description>
+        <settings>
+          <setting>
+            <name>Injected Volume</name>
+            <scalar units="µL">4.000000000e+01</scalar>
+          </setting>
+          <setting>
+            <name>Auto Inject Signal</name>
+            <value>no</value>
+          </setting>
+        </settings>
+      </instrument>
+    </instruments>
+    <connections>
+      <fluid>
+        <name>pump to injector</name>
+        <description></description>
+        <source>Generic Pump</source>
+        <destination>Injector</destination>
+        <delay_volume>0.00000000</delay_volume>
+      </fluid>
+      <fluid>
+        <name>injector to LS</name>
+        <description></description>
+        <source>Injector</source>
+        <destination>miniDAWN TREOS</destination>
+        <delay_volume>0.00000000</delay_volume>
+      </fluid>
+      <fluid>
+        <name>LS to RI</name>
+        <description></description>
+        <source>miniDAWN TREOS</source>
+        <destination>Optilab rEX</destination>
+        <delay_volume>0.10964734</delay_volume>
+      </fluid>
+      <autoinject>
+        <name>LS</name>
+        <description></description>
+        <source>autoinject</source>
+        <destination>miniDAWN TREOS</destination>
+      </autoinject>
+    </connections>
+  </configuration>
+  <sample>
+    <name>251215_SL_cpNB_Tbu_EH_EtOH_4_4_2</name>
+    <description></description>
+    <settings>
+      <setting>
+        <name>dn/dc</name>
+        <scalar units="mL/g">1.810000000e-01</scalar>
+      </setting>
+      <setting>
+        <name>A2</name>
+        <scalar units="mol mL/g²">0.000000000e+00</scalar>
+      </setting>
+      <setting>
+        <name>UV Ext. Coef. at 190 nm</name>
+        <scalar units="mL/(mg cm)">0.000000000e+00</scalar>
+      </setting>
+      <setting>
+        <name>Mark-Houwink-Sakurada K</name>
+        <scalar units="mL/g">0.000000000e+00</scalar>
+      </setting>
+      <setting>
+        <name>Mark-Houwink-Sakurada a</name>
+        <value>0</value>
+      </setting>
+      <setting>
+        <name>Reference Wavelength</name>
+        <scalar units="nm">0.000000000e+00</scalar>
+      </setting>
+      <setting>
+        <name>Reference Temperature</name>
+        <scalar units="°C">2.500000000e+01</scalar>
+      </setting>
+      <setting>
+        <name>Concentration</name>
+        <scalar units="mg/mL">1.000000000e+01</scalar>
+      </setting>
+    </settings>
+    <settings>
+      <name>Particles</name>
+      <setting>
+        <name>Sphere Real Refractive Index</name>
+        <scalar>1.480000000e+00</scalar>
+      </setting>
+      <setting>
+        <name>Sphere Imaginary Refractive Index</name>
+        <scalar>0.000000000e+00</scalar>
+      </setting>
+      <setting>
+        <name>Shell Thickness</name>
+        <scalar units="nm">0.000000000e+00</scalar>
+      </setting>
+      <setting>
+        <name>Shell Real Refractive Index</name>
+        <scalar>0.000000000e+00</scalar>
+      </setting>
+      <setting>
+        <name>Shell Imaginary Refractive Index</name>
+        <scalar>0.000000000e+00</scalar>
+      </setting>
+      <setting>
+        <name>Rod radius</name>
+        <scalar units="nm">0.000000000e+00</scalar>
+      </setting>
+    </settings>
+  </sample>
+  <procedures>
+    <settings>
+      <setting>
+        <name>Collection Operator</name>
+        <value>WATERS-H4Q6K34\Administrator (Administrator)</value>
+      </setting>
+      <setting>
+        <name>Collection Time</name>
+        <value>Thursday January 22, 2026 12:55:19 UTC-0400</value>
+      </setting>
+      <setting>
+        <name>Collection Version</name>
+        <value>8.2.2.119</value>
+      </setting>
+      <setting>
+        <name>Processing Operator</name>
+        <value>WATERS-H4Q6K34\Administrator (Administrator)</value>
+      </setting>
+      <setting>
+        <name>Processing Time</name>
+        <value>Thursday January 22, 2026 13:05:19 UTC-0400</value>
+      </setting>
+      <setting>
+        <name>Processing Version</name>
+        <value>8.2.2.119</value>
+      </setting>
+      <setting>
+        <name>Column Plate Count Theoretical Factor</name>
+        <value>Legacy (5.55)</value>
+      </setting>
+      <setting>
+        <name>Despiking Level</name>
+        <value>Normal</value>
+      </setting>
+    </settings>
+    <procedure>
+      <name>Basic Collection</name>
+      <settings>
+        <setting>
+          <name>Collection Script File Name</name>
+          <value></value>
+        </setting>
+        <setting>
+          <name>Wait for Auto-inject Signal</name>
+          <value>yes</value>
+        </setting>
+        <setting>
+          <name>Collection Duration (min)</name>
+          <value>10.00</value>
+        </setting>
+        <setting>
+          <name>Inject to Collect Delay (min)</name>
+          <value>0.00</value>
+        </setting>
+        <setting>
+          <name>LS Instrument Collection Interval (sec)</name>
+          <value>0.500</value>
+        </setting>
+        <setting>
+          <name>DLS Instrument Collection Interval (sec)</name>
+          <value>2.000</value>
+        </setting>
+        <setting>
+          <name>Collection Recycle</name>
+          <value>Waste</value>
+        </setting>
+        <setting>
+          <name>Laser Saver Mode</name>
+          <value>no</value>
+        </setting>
+        <setting>
+          <name>Laser Power (%)</name>
+          <value>100.00</value>
+        </setting>
+        <setting>
+          <name>COMET run duration (min)</name>
+          <value>0.00</value>
+        </setting>
+        <setting>
+          <name>Post-collection Optilab Purge</name>
+          <value>Purge Off</value>
+        </setting>
+        <setting>
+          <name>Post-collection Recycle</name>
+          <value>Recycle</value>
+        </setting>
+      </settings>
+    </procedure>
+    <procedure>
+      <name>Define Baselines</name>
+      <settings>
+        <baselines/>
+      </settings>
+    </procedure>
+    <procedure>
+      <name>Band Broadening</name>
+      <settings>
+        <setting>
+          <name>Reference Instrument</name>
+          <value>Optilab</value>
+        </setting>
+        <otherinstruments>
+          <bandbroadening>
+            <instrumentname>miniDAWN</instrumentname>
+            <enabled>Yes</enabled>
+            <delay>-0.10964734</delay>
+            <instrumentalterm>17.21380118</instrumentalterm>
+            <mixingterm>32.64604086</mixingterm>
+          </bandbroadening>
+        </otherinstruments>
+      </settings>
+    </procedure>
+    <procedure>
+      <name>Broaden</name>
+      <settings>
+        <setting>
+          <name>Band Broadening Algorithm</name>
+          <value>ASTRA 6</value>
+        </setting>
+      </settings>
+    </procedure>
+    <procedure>
+      <name>Define Peaks</name>
+      <settings>
+        <peaks count="1">
+          <peak_setting>
+            <name>Peak Name</name>
+            <value peak="1">Peak 1</value>
+          </peak_setting>
+          <peak_setting>
+            <name>Start</name>
+            <scalar units="min" peak="1">4.799831047e+00</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>End</name>
+            <scalar units="min" peak="1">5.894529355e+00</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Light Scattering Model</name>
+            <value peak="1">Zimm</value>
+          </peak_setting>
+          <peak_setting>
+            <name>Fit Degree</name>
+            <value peak="1">1</value>
+          </peak_setting>
+          <peak_setting>
+            <name>dn/dc</name>
+            <scalar units="mL/g" peak="1">1.810000000e-01</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>dn/dc Ref. Temp.</name>
+            <scalar units="°C" peak="1">2.500000000e+01</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>A2</name>
+            <scalar units="mol mL/g²" peak="1">0.000000000e+00</scalar>
+          </peak_setting>
+          <peak_setting tag="uv-ext">
+            <name>UV Ext. Coef.</name>
+            <scalar units="mL/(mg cm)" peak="1">0.000000000e+00</scalar>
+          </peak_setting>
+          <peak_setting tag="uv-ext-ref-temp">
+            <name>UV Ext. Coef. Ref. Temp.</name>
+            <scalar units="°C" peak="1">2.500000000e+01</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Sphere Real Refractive Index</name>
+            <scalar peak="1">1.480000000e+00</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Sphere Imaginary Refractive Index</name>
+            <scalar peak="1">0.000000000e+00</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Shell Thickness</name>
+            <scalar units="nm" peak="1">0.000000000e+00</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Shell Real Refractive Index</name>
+            <scalar peak="1">0.000000000e+00</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Shell Imaginary Refractive Index</name>
+            <scalar peak="1">0.000000000e+00</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Rod radius</name>
+            <scalar units="nm" peak="1">0.000000000e+00</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Molecular Standard</name>
+            <value peak="1">n/a</value>
+          </peak_setting>
+          <peak_setting>
+            <name>Concentration</name>
+            <scalar units="mg/mL" peak="1">1.000000000e+01</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Concentration Ref. Temp.</name>
+            <scalar units="°C" peak="1">2.500000000e+01</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Injected Mass</name>
+            <scalar units="µg" peak="1">2.000000000e+02</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Mn</name>
+            <scalar units="g/mol" peak="1">0.000000000e+00</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Mw</name>
+            <scalar units="g/mol" peak="1">0.000000000e+00</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Mp</name>
+            <scalar units="g/mol" peak="1">0.000000000e+00</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Measured Viscosity Data</name>
+            <scalar units="mL/g" peak="1">0.000000000e+00</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Intrinsic Viscosity</name>
+            <scalar units="mL/g" peak="1">0.000000000e+00</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Intrinsic Viscosity Ref. Temp.</name>
+            <scalar units="°C" peak="1">2.500000000e+01</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Mark-Houwink-Sakurada K</name>
+            <scalar units="mL/g" peak="1">0.000000000e+00</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Mark-Houwink-Sakurada a</name>
+            <value peak="1">0</value>
+          </peak_setting>
+          <peak_setting>
+            <name>Flory-Fox Equation Phi Parameter</name>
+            <value peak="1">0</value>
+          </peak_setting>
+          <peak_setting>
+            <name>Ptitsyn-Eizner Equation Epsilon Parameter</name>
+            <value peak="1">0</value>
+          </peak_setting>
+          <peak_setting>
+            <name>Viscometry Model</name>
+            <value peak="1">Huggins</value>
+          </peak_setting>
+          <peak_setting>
+            <name>Huggins Equation Parameter</name>
+            <value peak="1">0</value>
+          </peak_setting>
+          <peak_setting>
+            <name>Kraemers Equation Parameter</name>
+            <value peak="1">0</value>
+          </peak_setting>
+          <peak_setting>
+            <name>radius</name>
+            <scalar units="nm" peak="1">3.000000000e+00</scalar>
+          </peak_setting>
+          <peak_setting>
+            <name>Radius Type</name>
+            <value peak="1">rms</value>
+          </peak_setting>
+        </peaks>
+      </settings>
+    </procedure>
+    <procedure>
+      <name>Normalization</name>
+      <settings>
+        <setting>
+          <name>Normalization Peak</name>
+          <value>1</value>
+        </setting>
+        <setting>
+          <name>radius</name>
+          <scalar units="nm">3.000000000e+00</scalar>
+        </setting>
+        <setting>
+          <name>Normalization Type</name>
+          <value>area</value>
+        </setting>
+        <setting>
+          <name>Light Scattering Model</name>
+          <value>Zimm</value>
+        </setting>
+        <setting>
+          <name>Radius Type</name>
+          <value>rms</value>
+        </setting>
+        <setting>
+          <name>Percent to Keep</name>
+          <value>n/a</value>
+        </setting>
+      </settings>
+      <settings>
+        <name>Normalization Coefficients</name>
+        <setting>
+          <name>Detector 1</name>
+          <value>0.758277</value>
+        </setting>
+        <setting>
+          <name>Detector 2</name>
+          <value>1</value>
+        </setting>
+        <setting>
+          <name>Detector 3</name>
+          <value>0.79548</value>
+        </setting>
+      </settings>
+    </procedure>
+    <procedure>
+      <settings>
+        <setting>
+          <name>Peak Name</name>
+          <value>Peak 1</value>
+        </setting>
+        <setting>
+          <name>Molar Mass</name>
+          <value>0.000 ± 0.000 g/mol</value>
+        </setting>
+        <setting>
+          <name>rms radius</name>
+          <value>0.0 ± 0.0 nm</value>
+        </setting>
+        <setting>
+          <name>Light Scattering Model</name>
+          <value>Zimm</value>
+        </setting>
+        <setting>
+          <name>Fit Degree</name>
+          <value>1</value>
+        </setting>
+        <setting>
+          <name>Concentration</name>
+          <value>0.000 ± 0.000 mg/mL</value>
+        </setting>
+        <setting>
+          <name>dn/dc</name>
+          <scalar units="mL/g">0.000000000e+00</scalar>
+        </setting>
+        <setting>
+          <name>Slice Index</name>
+          <value>587</value>
+        </setting>
+        <setting>
+          <name>Abscissa Position</name>
+          <value></value>
+        </setting>
+        <setting>
+          <name>Fit R²</name>
+          <value>0.0000</value>
+        </setting>
+        <setting>
+          <name>Enabled Detectors</name>
+          <value>1 2 3</value>
+        </setting>
+      </settings>
+      <name>Molar Mass &amp; Radius from LS</name>
+    </procedure>
+    <procedure>
+      <name>Results Fitting Procedure</name>
+      <settings>
+        <fits/>
+      </settings>
+    </procedure>
+    <procedure/>
+  </procedures>
+  <results>
+    <result type="light scattering peak statistics">
+      <name>Data Source</name>
+      <scalar peak="1">~Invalid</scalar>
+    </result>
+  </results>
+  <signatures>
+    <qc_signoff/>
+  </signatures>
+</experiment>

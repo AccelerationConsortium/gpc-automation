@@ -133,9 +133,9 @@ def main():
     """
     log("🎯 Testing Results Access with get_results()")
     
-    # Setup
+    # Setup - Use the RECENT experiment file that was just created
     results_dir = r"C:\Users\Administrator.WS\Desktop\wyatt-api\gpc-automation\results"
-    target_file = os.path.join(results_dir, "collected_experiment_20260113_114325.aex.afe8")
+    target_file = os.path.join(results_dir, "gpc_run_20260113_151256", "experiment_20260113_151256.aex.afe8")
     
     log(f"📁 Using experiment: {os.path.basename(target_file)}")
     

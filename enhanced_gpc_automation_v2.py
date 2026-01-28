@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """
-Enhanced GPC Automation - Complete Data Collection & Analysis
+Enhanced GPC Automation v2 - Using High-Level collect_data() Method
 
 This script:
 1. Creates a timestamped results folder for each run
-2. Executes the full GPC automation workflow 
+2. Uses ASTRA's high-level collect_data() method (like official examples)
 3. Exports XML results and CSV datasets
 4. Extracts and displays molecular weight values
 5. Saves a summary text file with all results
+
+Based on the official ASTRA SDK command_line_app.py run_sequence() method.
 """
 
 import os
@@ -15,7 +17,7 @@ import uuid
 import re
 import shutil
 from datetime import datetime
-from astra_admin import AstraAdmin
+from astra_admin import AstraAdmin, SampleInfo
 
 # =============================================================================
 # CONFIGURATION PARAMETERS
@@ -23,17 +25,29 @@ from astra_admin import AstraAdmin
 
 # ASTRA Method Settings
 ASTRA_METHOD_PATH = r"//dbf/Method Builder/Owen/test_method_3"
-APP_NAME = "Enhanced GPC Test"
-APP_VERSION = "1.0.0.0"
+APP_NAME = "Enhanced GPC Test v2"
+APP_VERSION = "2.0.0.0"
+
+# Sample Information (required for collect_data method)
+SAMPLE_NAME = "GPC Test Sample"
+SAMPLE_DESCRIPTION = "Automated GPC Test Run"
+SAMPLE_DNDC = 0.185  # dn/dc (mL/g) - typical polymer value
+SAMPLE_A2 = 0.0      # A2 (mol mL/g^2) - second virial coefficient
+SAMPLE_UV_EXTINCTION = 0.0  # UV extinction (mL/(mg cm))
+SAMPLE_CONCENTRATION = 2.0   # Concentration (mg/mL)
+
+# Collection Parameters
+COLLECTION_DURATION = 0.0    # Duration in minutes (0 = automatic from method)
+INJECTION_VOLUME = 0.0       # Injection volume in microL (0 = from method)
+FLOW_RATE = -1.0            # Flow rate mL/min (-1 = from method)
 
 # File Paths and Directories
 BASE_RESULTS_DIR = r"C:\Users\Administrator.WS\Desktop\wyatt-api\gpc-automation\results"
-FOLDER_PREFIX = "gpc_run"  # Creates folders like "gpc_run_20260113_151025"
+FOLDER_PREFIX = "gpc_run_v2"  # Creates folders like "gpc_run_v2_20260113_151025"
 
 # Data Export Settings
 EXPORT_XML_RESULTS = True
 EXPORT_CSV_DATASETS = True
-EXPORT_EXPERIMENT_FILE = True
 CREATE_SUMMARY_FILE = True
 
 # Dataset Definitions to Export (must match ASTRA dataset names exactly)
@@ -47,16 +61,16 @@ SHOW_MOLECULAR_WEIGHTS_IN_TERMINAL = True
 PDI_DECIMAL_PLACES = 3  # Extra precision for polydispersity
 MW_DECIMAL_PLACES = 1   # Standard precision for molecular weights
 
-# Timeout Settings (if needed in future)
-INSTRUMENT_WAIT_TIMEOUT = 300  # seconds
-COLLECTION_TIMEOUT = 1800      # 30 minutes max collection time
-
 # =============================================================================
 
 def log(message: str):
     """Log with timestamp"""
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     print(f"[{timestamp}] {message}")
+
+def progress_callback(message: str):
+    """Progress callback for collect_data method"""
+    log(f"ASTRA: {message}")
 
 def extract_peak_results(xml_content):
     """Extract peak molecular weight results from ASTRA XML"""
@@ -94,7 +108,7 @@ def extract_peak_results(xml_content):
                             peak_num = int(scalar_match.group(3))
                             value_str = scalar_match.group(4).strip()
                         
-                        if scalar_match and value_str != 'n/a':
+                        if scalar_match and value_str != 'n/a' and value_str != '~Invalid':
                             value = float(value_str)
                             pct_uncertainty = (uncertainty / value) * 100
                             
@@ -120,13 +134,14 @@ def extract_peak_results(xml_content):
                             if scalar_match:
                                 peak_num = int(scalar_match.group(1))
                                 uncertainty = float(scalar_match.group(2))
-                                value = float(scalar_match.group(3))
+                                value_str = scalar_match.group(3).strip()
                         else:
                             uncertainty = float(scalar_match.group(1))
                             peak_num = int(scalar_match.group(2))
-                            value = float(scalar_match.group(3))
+                            value_str = scalar_match.group(3).strip()
                         
-                        if scalar_match:
+                        if scalar_match and value_str != 'n/a' and value_str != '~Invalid':
+                            value = float(value_str)
                             pct_uncertainty = (uncertainty / value) * 100
                             
                             if peak_num not in peak_data:
@@ -161,7 +176,7 @@ def extract_peak_results(xml_content):
                             peak_num = int(scalar_match.group(3))
                             value_str = scalar_match.group(4).strip()
                         
-                        if scalar_match and value_str != 'n/a':
+                        if scalar_match and value_str != 'n/a' and value_str != '~Invalid':
                             value = float(value_str)
                             pct_uncertainty = (uncertainty / value) * 100
                             
@@ -299,14 +314,15 @@ def display_and_save_results(peak_data, results_folder):
     print("="*50)
 
 def main():
-    """Enhanced GPC automation with organized data saving"""
-    log("🚀 Enhanced GPC Automation with Complete Data Organization")
-    log("Creates timestamped folders and extracts molecular weight data")
+    """Enhanced GPC automation using high-level collect_data method"""
+    log("🚀 Enhanced GPC Automation v2 - Using High-Level collect_data()")
+    log("Based on official ASTRA SDK command_line_app.py examples")
     
     # Display current configuration
     log(f"📋 ASTRA Method: {ASTRA_METHOD_PATH}")
     log(f"📁 Results Directory: {BASE_RESULTS_DIR}")
     log(f"🔬 App Identity: {APP_NAME} v{APP_VERSION}")
+    log(f"🧪 Sample: {SAMPLE_NAME} ({SAMPLE_DESCRIPTION})")
     
     # Create timestamped results folder for this run
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
@@ -320,7 +336,6 @@ def main():
         return False
     
     admin = None
-    experiment_id = None
     
     try:
         # Step 1: Set automation identity
@@ -342,54 +357,57 @@ def main():
         admin.wait_for_instruments()
         log("✓ Instruments detected")
         
-        # Step 3: Create experiment
-        log("=== Step 3: Creating Experiment ===")
-        experiment_id = admin.new_experiment_from_template(ASTRA_METHOD_PATH)
-        log(f"✓ Experiment created - ID: {experiment_id}")
+        # Step 3: Create sample information
+        log("=== Step 3: Preparing Sample Information ===")
+        sample_info = SampleInfo(
+            name=SAMPLE_NAME,
+            description=SAMPLE_DESCRIPTION,
+            dndc=SAMPLE_DNDC,
+            a2=SAMPLE_A2,
+            uvExtinction=SAMPLE_UV_EXTINCTION,
+            concentration=SAMPLE_CONCENTRATION
+        )
+        log(f"✓ Sample configured: {SAMPLE_NAME}")
+        log(f"  dn/dc: {SAMPLE_DNDC} mL/g")
+        log(f"  Concentration: {SAMPLE_CONCENTRATION} mg/mL")
         
-        # Step 4: Start data collection
-        log("=== Step 4: Starting Data Collection ===")
-        admin.start_collection(experiment_id)
-        log("✓ Collection started")
+        # Step 4: Complete data collection using high-level method
+        log("=== Step 4: Complete Data Collection (High-Level Method) ===")
+        experiment_filename = f"experiment_{timestamp}.aex"
+        experiment_path = os.path.join(run_results_folder, experiment_filename)
         
-        # Step 5: Wait for GPC signal
-        log("=== Step 5: Waiting for GPC Auto-Inject Signal ===")
-        admin.wait_waiting_for_auto_inject()
-        log("✓ GPC auto-inject signal received!")
+        log("Starting complete automated data collection...")
+        log("This includes: experiment creation, data collection, processing, and saving")
         
-        # Step 6: Wait for collection to start
-        log("=== Step 6: Waiting for Collection to Start ===")
-        admin.wait_collection_started() 
-        log("✓ Data collection started")
+        # This is the high-level method from the official examples
+        admin.collect_data(
+            ASTRA_METHOD_PATH,      # template/method path
+            experiment_path,         # where to save the experiment
+            sample_info,            # sample information
+            COLLECTION_DURATION,    # duration (0 = automatic)
+            INJECTION_VOLUME,       # injection volume (0 = from method) 
+            FLOW_RATE,              # flow rate (-1 = from method)
+            progress_callback       # progress callback function
+        )
         
-        # Step 7: Wait for collection to finish
-        log("=== Step 7: Waiting for Collection to Finish ===")
-        collection_start_time = datetime.now()
-        admin.wait_collection_finished()
-        collection_end_time = datetime.now()
-        collection_duration = (collection_end_time - collection_start_time).total_seconds() / 60
-        log(f"✓ Data collection completed ({collection_duration:.2f} minutes)")
-               
-        # Step 9: Run experiment to generate final results
-        log("=== Step 9: Running Experiment to Generate Results ===")
-        log("Triggering final data processing (includes automatic waiting)...")
-        admin.run_experiment(experiment_id)
-        log("✓ Data processing and molecular weight calculations completed")
+        log("✓ Complete data collection finished!")
         
-        # Step 10: Save experiment with data
-        if EXPORT_EXPERIMENT_FILE:
-            log("=== Step 10: Saving Final Experiment ===")
-            experiment_filename = f"experiment_{timestamp}.aex"
-            experiment_path = os.path.join(run_results_folder, experiment_filename)
-            admin.save_experiment(experiment_id, experiment_path)
-            
-            if os.path.exists(experiment_path):
-                exp_size = os.path.getsize(experiment_path)
-                log(f"✓ Final experiment saved: {exp_size:,} bytes")
+        # Step 5: Verify experiment file was created
+        if os.path.exists(experiment_path):
+            exp_size = os.path.getsize(experiment_path)
+            log(f"✓ Experiment file created: {exp_size:,} bytes")
+        else:
+            log("⚠ Warning: Experiment file not found")
+            return False
         
-        # Step 11: Export XML results and extract molecular weights
+        # Step 6: Open the completed experiment for analysis
+        log("=== Step 5: Opening Completed Experiment for Analysis ===")
+        experiment_id = admin.open_experiment(experiment_path)
+        log(f"✓ Experiment opened - ID: {experiment_id}")
+        
+        # Step 7: Export XML results and extract molecular weights
         if EXPORT_XML_RESULTS:
-            log("=== Step 11: Exporting and Analyzing Results ===")
+            log("=== Step 6: Exporting and Analyzing Results ===")
             results_filename = f"results_{timestamp}.xml"
             results_path = os.path.join(run_results_folder, results_filename)
             
@@ -417,9 +435,9 @@ def main():
                     except Exception as extract_error:
                         log(f"⚠ Warning: Could not extract molecular weights: {extract_error}")
         
-        # Step 12: Export CSV datasets
+        # Step 8: Export CSV datasets
         if EXPORT_CSV_DATASETS:
-            log("=== Step 12: Exporting CSV Datasets ===")
+            log("=== Step 7: Exporting CSV Datasets ===")
             
             exported_csv_count = 0
             
@@ -444,10 +462,11 @@ def main():
             
             log(f"✓ Exported {exported_csv_count} CSV dataset files")
         
-        # Step 13: Final Summary
-        log("=== Step 13: Complete! ===")
+        # Step 9: Final Summary
+        log("=== Step 8: Complete! ===")
         log("📁 All data saved to timestamped results folder:")
         log(f"   📂 Folder: {os.path.basename(run_results_folder)}")
+        log(f"   💾 Experiment: {experiment_filename}")
         
         if EXPORT_XML_RESULTS:
             log(f"   📄 XML Results: {results_filename}")
@@ -455,8 +474,10 @@ def main():
             log(f"   📊 CSV Datasets: {exported_csv_count} files")
         if CREATE_SUMMARY_FILE and SHOW_MOLECULAR_WEIGHTS_IN_TERMINAL:
             log(f"   📝 Summary: molecular_weight_summary.txt")
-        if EXPORT_EXPERIMENT_FILE:
-            log(f"   💾 Experiment: {experiment_filename}")
+        
+        # Close the experiment
+        admin.close_experiment(experiment_id)
+        log("✓ Experiment closed")
         
         return True
         
@@ -467,13 +488,6 @@ def main():
     finally:
         # Always clean up properly
         log("=== Cleanup ===")
-        
-        if experiment_id is not None and admin is not None:
-            try:
-                admin.close_experiment(experiment_id)
-                log("✓ Experiment closed")
-            except Exception as e:
-                log(f"⚠ Warning closing experiment: {e}")
         
         if admin is not None:
             try:
@@ -487,8 +501,8 @@ if __name__ == "__main__":
     
     if success:
         print("\n" + "="*60)
-        print("🎉 ENHANCED GPC AUTOMATION COMPLETE!")
-        print("✅ Full workflow executed successfully")
+        print("🎉 ENHANCED GPC AUTOMATION v2 COMPLETE!")
+        print("✅ Used high-level collect_data() method")
         print("💾 All data saved in timestamped results folder")
         print("📊 Molecular weight analysis completed and displayed")
         print("📁 Check the results folder for all exported files")
